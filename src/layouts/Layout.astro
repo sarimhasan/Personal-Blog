@@ -46,39 +46,12 @@ const { title, description } = Astro.props;
   }
 
   h1 {
-    @apply text-tt-light dark:text-tt-dark;
-    font-size: 30px;
+    @apply text-tt-light dark:text-tt-dark md:text-[30px] text-[27px];
   }
   p {
+    @apply text-tt-light dark:text-tt-dark md:text-[20px] text-[18px];
+  }
+  li {
     @apply text-tt-light dark:text-tt-dark;
-    font-size: 21px;
   }
 </style>
-
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const toggleThemeButton = document.querySelector('#toggle-theme');
-    const htmlElement = document.documentElement;
-
-    const toggleTheme = () => {
-      htmlElement.classList.toggle('dark');
-    };
-
-    toggleThemeButton.addEventListener('click', toggleTheme);
-
-    // Set the initial state based on the current theme
-    if (htmlElement.classList.contains('dark')) {
-      document.querySelector('#moon-icon').classList.add('hidden');
-      document.querySelector('#sun-icon').classList.remove('hidden');
-    } else {
-      document.querySelector('#moon-icon').classList.remove('hidden');
-      document.querySelector('#sun-icon').classList.add('hidden');
-    }
-
-    // Update the icons when the theme changes
-    toggleThemeButton.addEventListener('click', () => {
-      document.querySelector('#moon-icon').classList.toggle('hidden');
-      document.querySelector('#sun-icon').classList.toggle('hidden');
-    });
-  });
-</script>
