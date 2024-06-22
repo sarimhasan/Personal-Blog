@@ -18,6 +18,3 @@ export default function NewsletterInput() {
     </div>
   );
 }
-
-// w-[260px] p-1 rounded-l-full border-2 border-black outline-none
-// text-tt-light text-[16px] border-2 border-black rounded-r-full p-1 bg-primary w-[220px]
