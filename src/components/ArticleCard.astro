@@ -1,0 +1,27 @@
+---
+// props
+interface Props {
+  title: string;
+  date: string;
+}
+
+const { title, date } = Astro.props;
+---
+
+<a href="/">
+  <div class="bg-light-light m-4 rounded-2xl px-[10px] py-1">
+    <h3>{title}</h3>
+    <span class="text-[#FF70AB]">{date}</span>
+  </div>
+</a>
+
+<style>
+  div {
+    transition: all 0.2s ease-in-out;
+  }
+
+  div:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+  }
+</style>

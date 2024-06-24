@@ -4,6 +4,7 @@ export default function NewsletterInput() {
       <div>
         <input
           type="email"
+          placeholder="someone@me.com"
           name=""
           id=""
           className="w-[160px] md:w-[260px] py-1 px-2 rounded-l-full border-2 border-black outline-none"
