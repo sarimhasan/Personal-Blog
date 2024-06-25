@@ -1,0 +1,35 @@
+---
+import { Image } from 'astro:assets';
+import img from '../assets/ContactPic.jpg';
+
+import ContactForm from './ContactForm';
+---
+
+<div class="bg-light-light dark:bg-dark-light pt-10">
+  <div
+    class="md:flex justify-center max-w-[1440px] m-auto p-2 flex-row-reverse"
+  >
+    <div class="md:w-1/2">
+      <h1 class="my-2">Let's Connect</h1>
+      <p class="my-2">
+        Hey there! Whether you want to chat about coding, share your favorite
+        book recommendations, or just hang out and talk about anything
+        interesting, I'd love to hear from you.
+      </p>
+
+      <p class="mt-2 mb-10">
+        Feel free to drop me a message anytime. Let's connect and make something
+        awesome together!
+      </p>
+      <Image
+        class="m-auto md:m-0"
+        src={img}
+        alt="A person writing in his diary on a wooden table"
+        width={600}
+      />
+    </div>
+    <div class="md:w-1/2">
+      <ContactForm client:load />
+    </div>
+  </div>
+</div>
