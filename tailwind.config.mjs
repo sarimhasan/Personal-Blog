@@ -12,6 +12,7 @@ export default {
         'dark-light': '#4E555B',
         'dark-dark': '#343A40',
         'tt-dark': '#E7E7E7',
+        accent: '#FF70AB',
       },
     },
   },

@@ -5,7 +5,7 @@ import img from '../assets/ContactPic.jpg';
 import ContactForm from './ContactForm';
 ---
 
-<div class="bg-light-light dark:bg-dark-light pt-10">
+<div class="bg-light-light dark:bg-dark-light py-5">
   <div
     class="md:flex justify-center max-w-[1440px] m-auto p-2 flex-row-reverse"
   >
@@ -17,18 +17,18 @@ import ContactForm from './ContactForm';
         interesting, I'd love to hear from you.
       </p>
 
-      <p class="mt-2 mb-10">
+      <p class="mt-2 mb-5">
         Feel free to drop me a message anytime. Let's connect and make something
         awesome together!
       </p>
       <Image
-        class="m-auto md:m-0"
+        class="m-auto md:m-0 rounded-3xl"
         src={img}
         alt="A person writing in his diary on a wooden table"
         width={600}
       />
     </div>
-    <div class="md:w-1/2">
+    <div class="md:w-1/2 mt-7">
       <ContactForm client:load />
     </div>
   </div>
