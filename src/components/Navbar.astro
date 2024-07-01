@@ -7,11 +7,13 @@ import logo from '../assets/logo.png';
   class="bg-light-light dark:bg-dark-light h-14 pt-[6px] border-b border-dark-dark dark:border-light-light"
 >
   <nav
-    class="flex justify-center gap-8 max-w-[1440px] px-[140px] bg-light-light dark:bg-dark-light m-auto"
+    class="flex justify-around gap-8 max-w-[1440px] px-[140px] bg-light-light dark:bg-dark-light m-auto"
   >
-    <Image src={logo} alt="Logo" width={35} height={35} loading="eager" />
+    <a href="/"
+      ><Image src={logo} alt="Logo" width={35} height={35} loading="eager" /></a
+    >
 
-    <ul class="p-1 flex gap-8">
+    <ul class="pt-2 flex gap-8">
       <li class="md:hidden"><a href="/blog">Blog</a></li>
       <li class="hidden md:block">
         <a href="/book-summaries">Book Summaries</a>
