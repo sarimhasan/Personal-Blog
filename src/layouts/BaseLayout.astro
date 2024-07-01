@@ -5,6 +5,8 @@ interface Props {
 }
 
 const { title, description } = Astro.props;
+
+import '../styles/global.css';
 ---
 
 <!doctype html>
@@ -37,28 +39,3 @@ const { title, description } = Astro.props;
     <slot />
   </body>
 </html>
-
-<style is:global>
-  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
-
-  body {
-    font-family: 'Inter', sans-serif;
-  }
-
-  h1 {
-    @apply text-tt-light dark:text-tt-dark md:text-[30px] text-[27px];
-  }
-  li,
-  h2,
-  p {
-    @apply text-tt-light dark:text-tt-dark;
-  }
-
-  .btn {
-    transition: all 0.2s ease-in-out;
-  }
-
-  .btn:hover {
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.6);
-  }
-</style>
