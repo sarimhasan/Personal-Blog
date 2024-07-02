@@ -18,7 +18,9 @@ export default function NewsletterInput() {
       );
 
       if (response.data.subscription) {
-        setMessage('Thanks for subscribing!');
+        setMessage(
+          'Thanks for subscribing! Now Please check your email for confirmation'
+        );
         setEmail('');
       } else {
         setMessage('Something went wrong. Please try again.');

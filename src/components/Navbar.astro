@@ -61,28 +61,37 @@ import logo from '../assets/logo.png';
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    const toggleThemeButton = document.querySelector('#toggle-theme');
+    const toggleThemeButton = document.querySelector(
+      '#toggle-theme'
+    ) as HTMLButtonElement | null;
     const htmlElement = document.documentElement;
 
     const toggleTheme = () => {
       htmlElement.classList.toggle('dark');
     };
 
-    toggleThemeButton.addEventListener('click', toggleTheme);
+    if (toggleThemeButton) {
+      toggleThemeButton.addEventListener('click', toggleTheme);
+    }
 
     // Set the initial state based on the current theme
+    const moonIcon = document.querySelector('#moon-icon') as HTMLElement | null;
+    const sunIcon = document.querySelector('#sun-icon') as HTMLElement | null;
+
     if (htmlElement.classList.contains('dark')) {
-      document.querySelector('#moon-icon').classList.add('hidden');
-      document.querySelector('#sun-icon').classList.remove('hidden');
+      if (moonIcon) moonIcon.classList.add('hidden');
+      if (sunIcon) sunIcon.classList.remove('hidden');
     } else {
-      document.querySelector('#moon-icon').classList.remove('hidden');
-      document.querySelector('#sun-icon').classList.add('hidden');
+      if (moonIcon) moonIcon.classList.remove('hidden');
+      if (sunIcon) sunIcon.classList.add('hidden');
     }
 
     // Update the icons when the theme changes
-    toggleThemeButton.addEventListener('click', () => {
-      document.querySelector('#moon-icon').classList.toggle('hidden');
-      document.querySelector('#sun-icon').classList.toggle('hidden');
-    });
+    if (toggleThemeButton) {
+      toggleThemeButton.addEventListener('click', () => {
+        if (moonIcon) moonIcon.classList.toggle('hidden');
+        if (sunIcon) sunIcon.classList.toggle('hidden');
+      });
+    }
   });
 </script>
