@@ -59,39 +59,52 @@ import logo from '../assets/logo.png';
   </nav>
 </div>
 
-<script>
+<script is:inline>
   document.addEventListener('DOMContentLoaded', () => {
-    const toggleThemeButton = document.querySelector(
-      '#toggle-theme'
-    ) as HTMLButtonElement | null;
+    const toggleThemeButton = document.querySelector('#toggle-theme');
     const htmlElement = document.documentElement;
+    const moonIcon = document.querySelector('#moon-icon');
+    const sunIcon = document.querySelector('#sun-icon');
 
-    const toggleTheme = () => {
-      htmlElement.classList.toggle('dark');
+    const setTheme = (theme) => {
+      htmlElement.classList.toggle('dark', theme === 'dark');
+      localStorage.setItem('theme', theme);
+      updateIcons(theme);
     };
 
-    if (toggleThemeButton) {
-      toggleThemeButton.addEventListener('click', toggleTheme);
-    }
+    const updateIcons = (theme) => {
+      if (theme === 'dark') {
+        moonIcon.classList.add('hidden');
+        sunIcon.classList.remove('hidden');
+      } else {
+        moonIcon.classList.remove('hidden');
+        sunIcon.classList.add('hidden');
+      }
+    };
 
-    // Set the initial state based on the current theme
-    const moonIcon = document.querySelector('#moon-icon') as HTMLElement | null;
-    const sunIcon = document.querySelector('#sun-icon') as HTMLElement | null;
+    const handleToggleClick = () => {
+      const isDark = htmlElement.classList.contains('dark');
+      setTheme(isDark ? 'light' : 'dark');
+    };
 
-    if (htmlElement.classList.contains('dark')) {
-      if (moonIcon) moonIcon.classList.add('hidden');
-      if (sunIcon) sunIcon.classList.remove('hidden');
-    } else {
-      if (moonIcon) moonIcon.classList.remove('hidden');
-      if (sunIcon) sunIcon.classList.add('hidden');
-    }
+    const getInitialTheme = () => {
+      if (localStorage.getItem('theme')) {
+        return localStorage.getItem('theme');
+      }
+      return window.matchMedia('(prefers-color-scheme: dark)').matches
+        ? 'dark'
+        : 'light';
+    };
 
-    // Update the icons when the theme changes
-    if (toggleThemeButton) {
-      toggleThemeButton.addEventListener('click', () => {
-        if (moonIcon) moonIcon.classList.toggle('hidden');
-        if (sunIcon) sunIcon.classList.toggle('hidden');
+    const initialTheme = getInitialTheme();
+    setTheme(initialTheme);
+
+    toggleThemeButton.addEventListener('click', handleToggleClick);
+
+    window
+      .matchMedia('(prefers-color-scheme: dark)')
+      .addEventListener('change', ({ matches: isDark }) => {
+        setTheme(isDark ? 'dark' : 'light');
       });
-    }
   });
 </script>

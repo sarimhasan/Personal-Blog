@@ -2,9 +2,10 @@
 interface Props {
   title: string;
   description: string;
+  thumbnail?: string;
 }
 
-const { title, description } = Astro.props;
+const { title, description, thumbnail } = Astro.props;
 
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
@@ -23,16 +24,16 @@ import '../styles/global.css';
     <meta property="og:type" content="profile" />
     <meta property="profile:first_name" content="Sarim" />
     <meta property="profile:last_name" content="Hasan" />
-    <meta property="og:url" content="" />
+    <meta property="og:url" content={thumbnail} />
     <meta property="og:description" content={description} />
 
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="@sarim_hsan" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content="" />
+    <meta name="twitter:image" content={thumbnail} />
 
-    <link rel="icon" type="image/svg+xml" href="/logo.png" />
+    <link rel="icon" type="image/svg+xml" href="/public/logo.png" />
     <link rel="canonical" href="" />
 
     <title>{title}</title>

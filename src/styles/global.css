@@ -2,6 +2,8 @@
 
 body {
   font-family: 'Inter', sans-serif;
+  height: 100vh;
+  @apply bg-light-light dark:bg-dark-light;
 }
 
 h1 {

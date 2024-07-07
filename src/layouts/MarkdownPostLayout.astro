@@ -1,51 +1,10 @@
 ---
-import BlogNewsletterInput from '../components/BlogNewsletterInput.astro';
-import RelatedPosts from '../components/RelatedPosts.astro';
-import BaseLayout from './BaseLayout.astro';
-import { getEntry } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
 
-const { frontmatter, relatedPosts } = Astro.props;
-const { title, desc, pubDate, author, image, tags, realtedPosts } = frontmatter;
-
-const authorData = await getEntry('author', author.id).then(
-  (data) => data.data
-);
+const { frontmatter } = Astro.props;
+const { title, description, thumbnail } = frontmatter;
 ---
 
-<BaseLayout title={frontmatter.title} description={frontmatter.description}>
-  <div class="bg-light-light dark:bg-dark-light">
-    <div class="max-w-[730px] m-auto p-[10px]">
-      <h1 class="text-4xl font-bold mb-4">{title}</h1>
-      {
-        image && (
-          <img src={image.url} width="300" alt={image.alt} class="mb-4" />
-        )
-      }
-      <p class="text-gray-500 mb-2">
-        Published on: {new Date(pubDate).toLocaleDateString()}
-      </p>
-      <p class="mb-4">{desc}</p>
-      <p class="mb-4">
-        Written by: <span class="font-semibold">{authorData.name}</span>
-      </p>
-      <div class="tags mb-4">
-        {
-          tags.map((tag) => (
-            <p class="tag inline-block mr-2">
-              <a href={`/tags/${tag}`} class="text-blue-600 hover:underline">
-                {tag}
-              </a>
-            </p>
-          ))
-        }
-      </div>
-
-      <slot />
-
-      <BlogNewsletterInput />
-
-      <h1>Related Posts</h1>
-      <RelatedPosts relatedPosts={relatedPosts} />
-    </div>
-  </div>
+<BaseLayout title={title} description={description}>
+  <slot />
 </BaseLayout>
