@@ -1,10 +1,39 @@
 ---
+import NewsletterInput from '../components/NewsletterInput';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Image from 'astro/components/Image.astro';
 
 const { frontmatter } = Astro.props;
-const { title, description, thumbnail } = frontmatter;
+const { title, description, thumbnail, tags } = frontmatter;
 ---
 
 <BaseLayout title={title} description={description}>
-  <slot />
+  <div class="max-w-[720px] m-auto">
+    <h1>{title}</h1>
+    <Image
+      src={thumbnail.url}
+      alt={thumbnail.alt}
+      width={720}
+      height={360}
+      class="my-3"
+    />
+    {
+      tags.map((tag) => (
+        <span class="bg-light-dark px-2 py-1 text-tt-light rounded-full mr-3">
+          # {tag}
+        </span>
+      ))
+    }
+
+    <div class="my-3">
+      <slot />
+    </div>
+
+    <div class="p-5 bg-light-dark dark:bg-dark-dark rounded-lg my-7">
+      <p class="text-center mb-3">
+        If you liked my content, please subscribe to my newsletter
+      </p>
+      <NewsletterInput />
+    </div>
+  </div>
 </BaseLayout>

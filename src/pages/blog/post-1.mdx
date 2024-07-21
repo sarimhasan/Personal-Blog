@@ -1,0 +1,37 @@
+---
+layout: ../../layouts/MarkdownPostLayout.astro
+author: Sarim Hasan
+title: Test Post
+description: This is post 1
+thumbnail:
+  url: https://images.unsplash.com/photo-1719931626206-d3874333fd00?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
+  alt: thumbnail
+pubDate: 2022-01-01
+tags: ['test', 'test-2']
+---
+
+import Image from 'astro/components/Image.astro';
+
+From the start, we knew that we wanted an image API that felt as minimal as possible. We started with the original `<Image />` Component API from the `@astrojs/image` integration, and then built on it with a few new tweaks and changes.
+
+<br />
+
+```js del={2} ins={4} title="my-js-file"
+---
+// Import the <Image /> component
+import { Image } from "astro:assets"
+// Import a reference to the image itself
+import myImage from "../assets/penguin.png"
+---
+
+<image src="{myImage}" alt="A very cool penguin!" />
+```
+
+<br />
+
+But don’t let the minimal API fool you:
+
+- Astro optimizes your image using the modern WebP file format (by default).
+- For accessibility, the required alt prop helps improve your site for screen-readers and other tooling.
+- For even faster page-load performance, the loading and decoding attributes are added as defaults.
+- For the user experience, The width and height attributes are always included to prevent layout shift (more on this later).
