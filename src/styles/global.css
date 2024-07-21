@@ -11,6 +11,9 @@ h1 {
 }
 li,
 h2,
+h3,
+h4,
+h5,
 p {
   @apply text-tt-light dark:text-tt-dark;
 }
@@ -21,4 +24,14 @@ p {
 
 .btn:hover {
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.6);
+}
+
+em,
+strong {
+  @apply text-pink-600 !important;
+}
+
+td,
+th {
+  @apply text-tt-light dark:text-tt-dark text-base;
 }

@@ -8,8 +8,8 @@ const { title, description, thumbnail, tags } = frontmatter;
 ---
 
 <BaseLayout title={title} description={description}>
-  <div class="max-w-[720px] m-auto">
-    <h1>{title}</h1>
+  <div class="max-w-[720px] m-auto prose">
+    <h1 class="my-2">{title}</h1>
     <Image
       src={thumbnail.url}
       alt={thumbnail.alt}
@@ -30,7 +30,7 @@ const { title, description, thumbnail, tags } = frontmatter;
     </div>
 
     <div class="p-5 bg-light-dark dark:bg-dark-dark rounded-lg my-7">
-      <p class="text-center mb-3">
+      <p class="text-center m-0 my-2">
         If you liked my content, please subscribe to my newsletter
       </p>
       <NewsletterInput />
