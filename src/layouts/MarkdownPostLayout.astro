@@ -4,14 +4,15 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Image from 'astro/components/Image.astro';
 
 const { frontmatter } = Astro.props;
-const { title, description, thumbnail, tags } = frontmatter;
+const { title, description, thumbnail, tags, author } = frontmatter;
 const { url, alt } = thumbnail;
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout title={title} description={description} thumbnail={thumbnail}>
   <div class="max-w-[720px] m-auto prose">
     <h1 class="my-2">{title}</h1>
-    <Image src={url} alt={alt} width={720} height={360} class="my-3" />
+    <img src={url} alt={alt} width={720} height={360} class="my-3" />
+    <p>Written by: {author}</p>
     {
       tags.map((tag) => (
         <span class="bg-light-dark px-2 py-1 text-tt-light rounded-full mr-3">
