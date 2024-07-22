@@ -8,7 +8,7 @@ const { title, description, thumbnail, tags, author } = frontmatter;
 const { url, alt } = thumbnail;
 ---
 
-<BaseLayout title={title} description={description} thumbnail={thumbnail}>
+<BaseLayout title={title} description={description} thumbnail={url}>
   <div class="max-w-[720px] m-auto prose">
     <h1 class="my-2">{title}</h1>
     <img src={url} alt={alt} width={720} height={360} class="my-3" />
